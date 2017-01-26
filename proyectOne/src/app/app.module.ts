@@ -15,6 +15,10 @@ import { ConversorPipe } from './pipes/conversor.pipe';
 //directivas
 import { HighlightDirective } from './directives/highlight.directive';
 import { GigantDirective } from './directives/gigant.directive';
+
+//DI services
+import { TicketService } from './services/ticket.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,7 @@ import { GigantDirective } from './directives/gigant.directive';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

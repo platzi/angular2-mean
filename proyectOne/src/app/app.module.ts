@@ -12,13 +12,16 @@ import {InputComponent} from './input/input.component';
 //pipes
 import { ConversorPipe } from './pipes/conversor.pipe';
 
-
-
+//directivas
+import { HighlightDirective } from './directives/highlight.directive';
+import { GigantDirective } from './directives/gigant.directive';
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    ConversorPipe
+    ConversorPipe,
+    HighlightDirective,
+    GigantDirective
   ],
   imports: [
     BrowserModule,

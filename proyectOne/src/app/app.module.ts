@@ -9,10 +9,16 @@ import { AppComponent } from './app.component';
 //input 
 import {InputComponent} from './input/input.component';
 
+//pipes
+import { ConversorPipe } from './pipes/conversor.pipe';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent
+    InputComponent,
+    ConversorPipe
   ],
   imports: [
     BrowserModule,

@@ -33,4 +33,12 @@ export class AppComponent {
 
   cantidad = 5;
   factor = 1;
+
+
+
+  onSubmit(form: any): void {
+    console.log('El fomulario tiene:', form);
+  }
+
+
 }

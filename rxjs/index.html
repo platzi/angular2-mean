@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html>
+ 
+<head>
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.0.1/Rx.min.js" type="text/javascript"></script>
+</head>
+ 
+<body>
+    <input type="button" id="boton" value="pulsar" />
+</body>
+<script type="text/javascript">
+    var boton = document.getElementById("boton");
+    var botonStream = Rx.Observable.fromEvent(boton, 'click');
+
+    var suma =  botonStream.map(function(x) {
+                    return 1;
+                })
+                .scan(function(x,y) {
+                        return x+y;
+                }, 0)
+                .subscribe(function(resultado) {
+                    console.log(resultado);
+                });
+</script>
+ 
+</html>

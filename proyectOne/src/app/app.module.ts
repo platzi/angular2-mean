@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-
-
+import {InitComponent} from './init.component';
+import {PageNotFoundComponent} from './notfound/page.not.found.component';
 //input 
 import {InputComponent} from './input/input.component';
 
@@ -25,10 +25,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './services/counter';
 
-//NGRx Router
-import { routerReducer, RouterStoreModule } from '@ngrx/router-store';
+//router
 
-
+import { RouterModule, Routes } from '@angular/router';
+import { APPROUTER } from './commons/router';
 
 @NgModule({
   declarations: [
@@ -36,17 +36,19 @@ import { routerReducer, RouterStoreModule } from '@ngrx/router-store';
     InputComponent,
     ConversorPipe,
     HighlightDirective,
-    GigantDirective
+    GigantDirective,
+    InitComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    StoreModule.provideStore({ counter: counterReducer, router: routerReducer }),
-    RouterStoreModule.connectRouter()
+    StoreModule.provideStore({ counter: counterReducer }),
+    RouterModule.forRoot(APPROUTER)
   ],
   providers: [TicketService],
-  bootstrap: [AppComponent]
+  bootstrap: [InitComponent]
 })
 export class AppModule { }

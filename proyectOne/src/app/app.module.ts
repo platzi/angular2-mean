@@ -21,6 +21,10 @@ import { TicketService } from './services/ticket.service';
 //FORMS
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//NGRx
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './services/counter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    StoreModule.provideStore({ counter: counterReducer })
   ],
   providers: [TicketService],
   bootstrap: [AppComponent]

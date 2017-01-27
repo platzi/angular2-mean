@@ -25,6 +25,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './services/counter';
 
+//NGRx Router
+import { routerReducer, RouterStoreModule } from '@ngrx/router-store';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +43,8 @@ import { counterReducer } from './services/counter';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    StoreModule.provideStore({ counter: counterReducer })
+    StoreModule.provideStore({ counter: counterReducer, router: routerReducer }),
+    RouterStoreModule.connectRouter()
   ],
   providers: [TicketService],
   bootstrap: [AppComponent]

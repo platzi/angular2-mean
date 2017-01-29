@@ -13,4 +13,9 @@ export class TicketService{
         return this.miVariableTicketGlobal;
     }
 
+    getTicket(id:number){
+    let ticket = TICKETS.find(x => x.id === id);
+      return ticket;
+    }
+
 }

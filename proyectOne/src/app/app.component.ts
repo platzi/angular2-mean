@@ -18,6 +18,7 @@ interface AppState {
   counter: number;
 }
 
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-component',
@@ -45,9 +46,10 @@ export class AppComponent {
     private fb: FormBuilder,
     private store: Store<AppState>,
     private _ngZone: NgZone,
-    private router : Router
+    private router : Router,
+    af: AngularFire
     ) {
-    
+    console.log(af.database.list('/items'));
 
     this.counter = store.select('counter');
     this.tickets = ticketService.getTickets();

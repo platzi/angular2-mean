@@ -33,6 +33,18 @@ import { counterReducer } from './services/counter';
 import { RouterModule, Routes } from '@angular/router';
 import { APPROUTER } from './commons/router';
 
+
+//FIREBASE
+import { AngularFireModule } from 'angularfire2';
+export const firebaseConfig = {
+  apiKey: "AIzaSyCBdhsSxJmTB0Zj6Br2W5laVhZPEJ25u40",
+  authDomain: "angular-platzi.firebaseapp.com",
+  databaseURL: "https://angular-platzi.firebaseio.com",
+  storageBucket: "angular-platzi.appspot.com",
+  messagingSenderId: "380289465137"
+};
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +62,8 @@ import { APPROUTER } from './commons/router';
     ReactiveFormsModule,
     HttpModule,
     StoreModule.provideStore({ counter: counterReducer }),
-    RouterModule.forRoot(APPROUTER)
+    RouterModule.forRoot(APPROUTER),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [TicketService],
   bootstrap: [InitComponent]

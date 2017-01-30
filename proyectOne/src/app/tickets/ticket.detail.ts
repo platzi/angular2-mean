@@ -21,11 +21,15 @@ export class TicketDetail{
     ){
 
     }
-
+/*
     ngOnInit() {
         let id = +this.route.snapshot.params['id'];
         this.ticket = this.service.getTicket(id);
-
+    }
+*/
+    ngOnInit() {
+        this.service.getTicketObserver(this.route.snapshot.params['id'])
+            .subscribe(ticket => this.ticket = ticket);
     }
 
 

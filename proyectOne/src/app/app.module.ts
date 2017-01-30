@@ -35,7 +35,7 @@ import { APPROUTER } from './commons/router';
 
 
 //FIREBASE
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 export const firebaseConfig = {
   apiKey: "AIzaSyCBdhsSxJmTB0Zj6Br2W5laVhZPEJ25u40",
   authDomain: "angular-platzi.firebaseapp.com",
@@ -43,6 +43,12 @@ export const firebaseConfig = {
   storageBucket: "angular-platzi.appspot.com",
   messagingSenderId: "380289465137"
 };
+
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Redirect
+};
+
 
 
 @NgModule({
@@ -63,7 +69,7 @@ export const firebaseConfig = {
     HttpModule,
     StoreModule.provideStore({ counter: counterReducer }),
     RouterModule.forRoot(APPROUTER),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   providers: [TicketService],
   bootstrap: [InitComponent]

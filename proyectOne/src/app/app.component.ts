@@ -14,11 +14,14 @@ import {Observable} from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 
+
+
 interface AppState {
   counter: number;
 }
 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AuthProviders, AuthMethods } from 'angularfire2';
 
 @Component({
   selector: 'app-component',
@@ -47,7 +50,7 @@ export class AppComponent {
     private store: Store<AppState>,
     private _ngZone: NgZone,
     private router : Router,
-    af: AngularFire
+    private af: AngularFire
     ) {
     console.log(af.database.list('/items'));
 
@@ -55,6 +58,11 @@ export class AppComponent {
     this.tickets = ticketService.getTickets();
     this.myForm = fb.group({
       'name': ['Jorge']
+    });
+
+    this.af.auth.login({
+      provider: AuthProviders.Google,
+      method: AuthMethods.Popup,
     });
 
   }

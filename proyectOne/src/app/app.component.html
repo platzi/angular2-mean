@@ -16,9 +16,12 @@
 
 
 <ul>
-  <li *ngFor="let ticket of ticketFirebase | async" gigant (click)="verTicket(ticket.id)">
+  <li *ngFor="let ticket of ticketFirebase | async" gigant >
     <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}} 
     <span myHighlight>[ {{ticket.estado}} ]</span>
+    <button (click)="removeTicket(ticket.$key)"> REMOVE </button>
+    <button (click)="updateTicket(ticket.$key)" > UPDATE </button>
+    <button (click)="verTicket(ticket.id)" > VER </button>
   </li>
 </ul>
 

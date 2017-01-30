@@ -77,6 +77,7 @@ export class AppComponent {
         'titulo': 'no me funciona una lampara', 
         'estado': 'really'
       });
+      
 */
 
     
@@ -93,6 +94,23 @@ export class AppComponent {
     });
 
   }
+
+      //update
+      updateTicket(key):void{
+        console.log(key);
+        this.ticketFirebase.update(key, { estado: 'in progress' });  
+      }
+      //remove
+      removeTicket(key):void{
+        console.log(key);
+        this.ticketFirebase.remove(key); 
+      }
+      //remove all
+      removeAllTicket():void{
+        this.ticketFirebase.remove();
+      }
+      
+
 
    increment(){
         this.store.dispatch({ type: INCREMENT });

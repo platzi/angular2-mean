@@ -14,6 +14,14 @@
   Oh: {{cantidad | conversorPipe: factor}}
 </p>
 
+
+<ul>
+  <li *ngFor="let ticket of ticketFirebase | async" gigant (click)="verTicket(ticket.id)">
+    <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}} 
+    <span myHighlight>[ {{ticket.estado}} ]</span>
+  </li>
+</ul>
+
 <ul>
   <li *ngFor="let ticket of tickets" gigant (click)="verTicket(ticket.id)">
     <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}} 

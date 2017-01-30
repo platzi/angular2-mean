@@ -44,6 +44,8 @@ export class AppComponent {
   counter: Observable<number>;
 
 
+  ticketFirebase:any;
+
   constructor(
     private ticketService :TicketService, 
     private fb: FormBuilder,
@@ -52,7 +54,32 @@ export class AppComponent {
     private router : Router,
     private af: AngularFire
     ) {
-    console.log(af.database.list('/items'));
+
+      this.ticketFirebase = af.database.list('/ticket');
+/*
+      this.ticketFirebase.push({
+          'id': 1, 
+          'titulo': 'no me funciona la impresora', 
+          'estado': 'in progress'
+      });
+      this.ticketFirebase.push({
+        'id': 2, 
+        'titulo': 'no me funciona la computadora', 
+        'estado': 'finish'
+      });
+      this.ticketFirebase.push({
+        'id': 3, 
+        'titulo': 'no me funciona el celular', 
+        'estado': 'in progress'
+      });
+      this.ticketFirebase.push({
+        'id': 4, 
+        'titulo': 'no me funciona una lampara', 
+        'estado': 'really'
+      });
+*/
+
+    
 
     this.counter = store.select('counter');
     this.tickets = ticketService.getTickets();

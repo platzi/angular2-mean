@@ -1,0 +1,17 @@
+{
+  "name": "authentication-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "script": {
+    "test": "echo \"Error: no test \" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "jwt-simple": "^0.5.0",
+    "moment": "^2.15.2",
+    "uuid": "^3.0.0"
+  }
+}

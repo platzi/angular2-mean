@@ -45,6 +45,9 @@ export class AppComponent {
 
 
   ticketFirebase:any;
+  ticketMongo:any;
+  errorMessage:any;
+
 
   constructor(
     private ticketService :TicketService, 
@@ -93,6 +96,12 @@ export class AppComponent {
       method: AuthMethods.Popup,
     });
 
+
+    this.ticketService.getTicketsMongo()
+          .then(
+              tickets => this.ticketMongo = tickets,
+              error =>  this.errorMessage = <any>error
+            );
   }
 
       //update
@@ -177,6 +186,9 @@ export class AppComponent {
   verTicket(id:number):void{
      this.router.navigate(['/ticket', id ]);
   }
+
+
+
 
 
 }

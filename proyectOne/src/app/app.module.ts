@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {InitComponent} from './init.component';
-import {PageNotFoundComponent} from './notfound/page.not.found.component';
+import { PageNotFoundComponent } from './pageNotFound/page.not.found.component';
+import {InitComponent } from './init.component';
 import { TicketDetail } from './tickets/ticket.detail';
-
 
 //input 
 import {InputComponent} from './input/input.component';
@@ -18,25 +18,23 @@ import { ConversorPipe } from './pipes/conversor.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { GigantDirective } from './directives/gigant.directive';
 
-//DI services
+//service
 import { TicketService } from './services/ticket.service';
 
-//FORMS
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-//NGRx
+//ngrx
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './services/counter';
 
-//router
 
+//routes 
 import { RouterModule, Routes } from '@angular/router';
 import { APPROUTER } from './commons/router';
 
 
-//FIREBASE
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
-export const firebaseConfig = {
+//firebase 
+import {AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
+
+export const firebaseConfig={
   apiKey: "AIzaSyCBdhsSxJmTB0Zj6Br2W5laVhZPEJ25u40",
   authDomain: "angular-platzi.firebaseapp.com",
   databaseURL: "https://angular-platzi.firebaseio.com",
@@ -44,12 +42,10 @@ export const firebaseConfig = {
   messagingSenderId: "380289465137"
 };
 
-const myFirebaseAuthConfig = {
+export const myFirebaseAuthConfig = {
   provider: AuthProviders.Google,
-  method: AuthMethods.Redirect
-};
-
-
+  method: AuthMethods.Popup
+}
 
 @NgModule({
   declarations: [
@@ -58,8 +54,8 @@ const myFirebaseAuthConfig = {
     ConversorPipe,
     HighlightDirective,
     GigantDirective,
-    InitComponent,
     PageNotFoundComponent,
+    InitComponent,
     TicketDetail
   ],
   imports: [
@@ -67,9 +63,9 @@ const myFirebaseAuthConfig = {
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    StoreModule.provideStore({ counter: counterReducer }),
+    StoreModule.provideStore({counter: counterReducer}),
     RouterModule.forRoot(APPROUTER),
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig) 
   ],
   providers: [TicketService],
   bootstrap: [InitComponent]

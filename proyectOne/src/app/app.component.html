@@ -14,62 +14,53 @@
   Oh: {{cantidad | conversorPipe: factor}}
 </p>
 
-
-
-<h1>ticketMongo</h1>
+<h1>MONGODB</h1>
 <ul>
-  <li *ngFor="let ticket of ticketMongo" gigant >
-    <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}} 
-    <span myHighlight>[ {{ticket.estado}} ]</span>
-    <button (click)="removeTicket(ticket.$key)"> REMOVE </button>
-    <button (click)="updateTicket(ticket.$key)" > UPDATE </button>
-    <button (click)="verTicket(ticket.id)" > VER </button>
+  <li *ngFor="let ticket of ticketMongo" gigant>
+    <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}}
+    <span myHighlight> [ {{ticket.estado}} ]</span>
+    <button (click)="removeMongoTicket(ticket.id)"> REMOVE </button>
+    <button (click)="updateMongoTicket(ticket.id)"> UPDATE </button>
+    <button (click)="verMongoTicket(ticket.id)"> VER </button>
   </li>
 </ul>
 
 <h1>Firebase</h1>
 <ul>
-  <li *ngFor="let ticket of ticketFirebase | async" gigant >
-    <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}} 
-    <span myHighlight>[ {{ticket.estado}} ]</span>
+  <li *ngFor="let ticket of ticketFirebase | async" gigant>
+    <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}}
+    <span myHighlight> [ {{ticket.estado}} ]</span>
     <button (click)="removeTicket(ticket.$key)"> REMOVE </button>
-    <button (click)="updateTicket(ticket.$key)" > UPDATE </button>
-    <button (click)="verTicket(ticket.id)" > VER </button>
+    <button (click)="updateTicket(ticket.$key)"> UPDATE </button>
+    <button (click)="verTicket(ticket.id)"> VER </button>
   </li>
 </ul>
-
-<h1>json</h1>
+<h1>JSON</h1>
 <ul>
   <li *ngFor="let ticket of tickets" gigant (click)="verTicket(ticket.id)">
-    <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}} 
-    <span myHighlight>[ {{ticket.estado}} ]</span>
+    <b>Ticket N: {{ticket.id}}</b> - {{ticket.titulo}}
+    <span myHighlight> [ {{ticket.estado}} ]</span>
   </li>
 </ul>
 
-
-<form [formGroup]="myForm" 
-    (ngSubmit)="onSubmit(myForm.value)" 
->
+<form [formGroup]="myForm" (ngSubmit)="myForm.value">
   <div>
     <label for="nameInput">Nombre</label>
-    <input type="text" id="nameInput" placeholder="Nombre" name="name" 
-    [formControl]="myForm.controls['name']" >
+    <input type="text" id="nameInput" placeholder="Nombre"  
+    name="nombre" [formControl]="myForm.controls['name']" />
   </div>
   <button type="submit">Submit</button>
+
 </form>
 
 
-
-<button (click)="increment()">Incrementar</button>
-<div>Counter: {{ counter | async }}</div>
-<button (click)="decrement()">Decrementar</button>
-
-<button (click)="reset()">Resetear Counter</button>
+<button (click)="increment()">Incrementar </button>
+<div>Counter: {{counter | async}}</div>
+<button (click)="decrement()">Decrementar </button>
+<button (click)="reset()">Reset </button>
 
 
-
-<p gigant>Progress: {{progress}}%</p>
-<p gigant *ngIf="progress >= 100">Done processing {{label}} of Angular zone!</p>
-
-<button gigant (click)="processWithinAngularZone()">Process within Angular zone</button>
-<button gigant (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>
+<p gigant> Progress: {{progress}}%</p>
+<p gigant *ngIf="progress >= 100">Done processing {{label}} of angular zone!</p>
+<button gigant (click)="processWithinAngularZone()">Con AngularZone</button>
+<button gigant (click)="processOutsideOfAngularZone()">Sin Angularzone</button>

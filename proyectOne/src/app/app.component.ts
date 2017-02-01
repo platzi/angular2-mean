@@ -2,6 +2,7 @@ import { Component, NgZone } from '@angular/core';
 
 import { InputComponent } from './input/input.component';
 
+
 import { TicketService } from './services/ticket.service';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -152,6 +153,10 @@ export class AppComponent {
 
   verMongoTicket(id:number):void{
       this.router.navigate(['/ticket', id ]);
+  }
+
+  updateMongoTicket(id:number):void{
+    this.router.navigate(['/ticketUpdate', id ]);
   }
 
   verTicket(id:number):void{

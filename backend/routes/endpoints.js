@@ -86,6 +86,7 @@ router.post('/ticket', cors(), function(req, res){
 
 router.post("/ticketUpdate", cors(), function(req, res){
     "use strict";
+    console.log(req.body);
     collection.update(
         { id: parseInt(req.body.id) },
         {
@@ -109,6 +110,7 @@ router.post("/ticketUpdate", cors(), function(req, res){
                     result : err
                 }
             }
+            console.dir(resultado);
             res.set('Content-Type', 'application/json').send(JSON.stringify(resultado));
         }
     )

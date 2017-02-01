@@ -1,0 +1,14 @@
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" >
+  <div>
+    <label for="tituloInput">titulo</label>
+    <input type="text" id="tituloInput" placeholder="titulo" name="titulo" 
+    [formControl]="myForm.controls['titulo']" >
+  </div>
+  <div>
+    <label for="estadoInput">Estado</label>
+    <input type="text" id="estadoInput" placeholder="estado" name="estado" 
+    [formControl]="myForm.controls['estado']" >
+  </div>
+  <button type="submit">Submit</button>
+</form>

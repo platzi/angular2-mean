@@ -10,7 +10,7 @@ import { TicketDetail } from './tickets/ticket.detail';
 
 //input 
 import {InputComponent} from './input/input.component';
-
+import { UpdateComponent } from './update/update.component';
 //pipes
 import { ConversorPipe } from './pipes/conversor.pipe';
 
@@ -56,7 +56,8 @@ export const myFirebaseAuthConfig = {
     GigantDirective,
     PageNotFoundComponent,
     InitComponent,
-    TicketDetail
+    TicketDetail,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

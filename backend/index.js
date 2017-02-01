@@ -6,7 +6,7 @@ var app = express();
 
 //connect database
 var MongoClient = require('mongodb').MongoClient;
-MongoClient.connect("mongodb://localhost:27017/platzi-angular", function(err, db) {
+MongoClient.connect("mongodb://localhost:27017/platzi-angular-mean", function(err, db) {
   if(!err) {
     console.log("MongoDb Connect");
     /*
